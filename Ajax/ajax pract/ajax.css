@@ -1,0 +1,22 @@
+body{
+    background-color: rgb(187, 51, 51);
+
+}
+
+h1{
+ position: relative;
+font-size: 50px;
+text-align: center;
+color: white;
+}
+
+.form button, input{
+position: relative;
+left:50px;
+
+}
+
+div{
+    position: absolute;
+    top: 25%;
+}
