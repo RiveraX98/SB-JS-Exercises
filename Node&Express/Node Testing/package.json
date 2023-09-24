@@ -1,0 +1,16 @@
+{
+  "name": "node-testing",
+  "version": "1.0.0",
+  "description": "practice node testing",
+  "main": "makeText.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Xavier Rivera",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.5.0",
+    "jest": "^29.7.0",
+    "process": "^0.11.10"
+  }
+}
