@@ -13,24 +13,32 @@ router.post("/", function (req, res) {
   res.status(201).json({ added: newItem });
 });
 
-router.get("/:name", function (req, res) {
-  const foundItem = items.find((item) => item.name === req.params.name);
-  if (foundItem === undefined) {
-    throw new ExpressError("item not found", 404);
+router.get("/:name", function (req, res, next) {
+  try {
+    const foundItem = items.find((item) => item.name === req.params.name);
+    if (foundItem === undefined) {
+      throw new ExpressError("item not found", 404);
+    }
+    res.json({ item: foundItem });
+  } catch (e) {
+    return next(e);
   }
-  res.json({ item: foundItem });
 });
 
-router.patch("/:name", function (req, res) {
-  const foundItem = items.find((item) => item.name === req.params.name);
-  if (foundItem === undefined) {
-    throw new ExpressError("item not found", 404);
+router.patch("/:name", function (req, res, next) {
+  try {
+    const foundItem = items.find((item) => item.name === req.params.name);
+    if (foundItem === undefined) {
+      throw new ExpressError("item not found", 404);
+    }
+
+    foundItem.name = req.body.name;
+    foundItem.price = req.body.price;
+
+    res.json({ updated: foundItem });
+  } catch (e) {
+    return next(e);
   }
-
-  foundItem.name = req.body.name;
-  foundItem.price = req.body.price;
-
-  res.json({ updated: foundItem });
 });
 
 router.delete("/:name", function (req, res) {

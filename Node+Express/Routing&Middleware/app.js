@@ -1,16 +1,21 @@
 const express = require("express");
-const app = express();
+
 const itemsRoutes = require("./itemsRoute");
-const ExpressError = require("./expressError");
+
+const app = express();
 
 app.use(express.json());
 
 app.use("/shopping", itemsRoutes);
 
-app.use((error, req, res, next) => {
-  let status = error.status || 500;
-  let msg = error.msg;
-  return res.status(status).json({ error: { status, msg } });
+app.use(function (err, req, res, next) {
+  res.status(err.status || 500);
+  if (process.env.NODE_ENV != "test") console.error(err.stack);
+
+  return res.json({
+    error: err,
+    message: err.message,
+  });
 });
 
 module.exports = app;
