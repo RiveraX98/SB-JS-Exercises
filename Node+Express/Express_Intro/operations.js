@@ -2,7 +2,7 @@ const ExpressError = require("./expressError");
 
 function validateAndConvert(nums) {
   let arr = [];
-  console.log(nums);
+
   for (let str of nums) {
     let num = Number(str);
     if (isNaN(num)) {
@@ -10,11 +10,12 @@ function validateAndConvert(nums) {
     }
     arr.push(num);
   }
-  console.log("nums converted");
+
   return arr;
 }
 
 function findMean(nums) {
+  if (nums.length === 0) return 0;
   let total = 0;
   for (let num of nums) {
     total += num;
@@ -23,8 +24,14 @@ function findMean(nums) {
 }
 
 function findMedian(nums) {
-  let midpoint = Math.ceil(nums.length / 2);
-  return nums[midpoint - 1];
+  nums.sort((a, b) => a - b);
+
+  let midpoint = Math.floor(nums.length / 2);
+
+  if (nums.length % 2 === 0) {
+    return (nums[midpoint] + nums[midpoint - 1]) / 2;
+  }
+  return nums[midpoint];
 }
 
 function findMode(nums) {
