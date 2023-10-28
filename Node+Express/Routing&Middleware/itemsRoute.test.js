@@ -1,6 +1,5 @@
 process.env.NODE_ENV = "test";
 const request = require("supertest");
-const { response } = require("./app");
 const app = require("./app");
 let database = require("./fakeDb");
 
@@ -62,7 +61,7 @@ describe("PATCH /shopping/:name", () => {
 describe("DELETE /shopping/:name", () => {
   test("delete specified item", async () => {
     const res = await request(app).delete(`/shopping/${item.name}`);
-    // expect(res.statusCode).toBe(200);
+    expect(res.statusCode).toBe(200);
     expect(res.body).toEqual({ Deleted: item.name });
   });
 });
