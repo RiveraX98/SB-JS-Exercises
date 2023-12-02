@@ -1,12 +1,13 @@
 /** Tests for invoices. */
 
+process.env.NODE_ENV = "test";
+
 const request = require("supertest");
 
 const app = require("../app");
 const { createData } = require("./_test-setup");
 const db = require("../db");
 
-// before each test, clean out data
 beforeEach(createData);
 
 afterAll(async () => {

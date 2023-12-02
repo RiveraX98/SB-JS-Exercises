@@ -5,6 +5,7 @@ describe("findMedian", function () {
   test("findMedian with even array", function () {
     expect(findMedian([1, -1, 4, 2])).toEqual(1.5);
   });
+
   test("findMedian with odd array", function () {
     expect(findMedian([1, -1, 4])).toEqual(1);
   });

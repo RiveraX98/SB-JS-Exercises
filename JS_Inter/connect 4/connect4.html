@@ -8,12 +8,17 @@
     <title>Connect 4</title>
   </head>
   <body>
-    <input id="p1-color" placeholder="Player 1 color" />
-    <input id="p2-color" placeholder="Player 2 color" />
-    <button id="start-game">Start Game!</button>
+    <div class="container">
+      <h1>Play Connect 4 !</h1>
+      <div id="color-input">
+        <input id="p1-color" placeholder="Player 1 color" />
+        <input id="p2-color" placeholder="Player 2 color" />
+        <button id="start-game">Start Game!</button>
+      </div>
 
-    <div id="game">
-      <table id="board"></table>
+      <div id="game">
+        <table id="board"></table>
+      </div>
     </div>
 
     <script src="connect4.js"></script>
