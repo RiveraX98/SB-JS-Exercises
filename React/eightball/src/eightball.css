@@ -1,0 +1,23 @@
+.EightBall-ball{
+    box-shadow: 5px 5px 10px #678;
+    margin: 50px;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    background-color: black;
+  }
+
+.EightBall{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+ 
+}
+
