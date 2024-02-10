@@ -59,7 +59,7 @@ class BinaryTree {
 
     let queue = [this.root];
     let closest = null;
-
+    
     while (queue.length) {
       let currentNode = queue.shift();
       let currentVal = currentNode.val;
