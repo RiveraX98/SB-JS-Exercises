@@ -5,7 +5,6 @@ import JoblyApi from "./api";
 import { useLocalStorage } from "./useLocalStorage";
 
 export const SignUp = () => {
-  const navigate = useNavigate();
   let data = useActionData();
   const [token, setToken] = useLocalStorage("token", null);
 
